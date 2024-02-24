@@ -15,7 +15,7 @@ export const CarCounter = () => {
             className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] "
             onClick={()=>{setCount(count + 1)}}
           >
-            (+)10
+            +
           </button>
         </div>
 
@@ -24,7 +24,7 @@ export const CarCounter = () => {
             className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] "
             onClick={()=>{setCount(count - 1)}}
           >
-            (-)10
+            -
           </button>
         </div>
       </div>
