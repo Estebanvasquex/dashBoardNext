@@ -1,8 +1,20 @@
 
-export default function HomePage() {
+import { CarCounter } from "@/app/shopping-cart";
+
+export const metadata = {
+  title: "Shopping Cart",
+  description: "El mejor contador hecho en next",
+};
+
+
+
+export default function CounterPage() {
+
   return (
-    <div>
-      <h1>Hello PAPÁ</h1>
+    <div className="flex flex-col items-center justify-center w-full">
+      <span>Productos del framwork</span>
+      <CarCounter/> 
+
     </div>
   );
 }
