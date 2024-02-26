@@ -1,12 +1,11 @@
 
+import { PokemonsGrid } from "@/app/pokemons";
 import { CarCounter } from "@/app/shopping-cart";
 
 export const metadata = {
   title: "Shopping Cart",
   description: "El mejor contador hecho en next",
 };
-
-
 
 export default function CounterPage() {
 
