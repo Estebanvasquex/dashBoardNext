@@ -19,6 +19,8 @@ const getPokemons = async (
     };
   });
 
+  throw new Error("Esto es un error de prueba");
+
   return pokemons;
 };
 
