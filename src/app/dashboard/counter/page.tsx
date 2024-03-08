@@ -1,6 +1,6 @@
 
-import { PokemonsGrid } from "@/app/pokemons";
-import { CarCounter } from "@/app/shopping-cart";
+import { PokemonCard } from "@/pokemons";
+import { CarCounter } from "@/shopping-cart";
 
 export const metadata = {
   title: "Shopping Cart",

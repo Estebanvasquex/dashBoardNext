@@ -4,3 +4,5 @@ export {PokemonCard} from './components/PokemonCard';
 
 export type {PokemonstResponseData} from './interfaces/PokemonsResponseData';
 export type {SimplePokemon} from './interfaces/SimplePokemon';
+export type {Pokemon} from './interfaces/pokemon';  
+

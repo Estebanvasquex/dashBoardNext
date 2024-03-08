@@ -2,7 +2,7 @@ import {
   PokemonsGrid,
   PokemonstResponseData,
   SimplePokemon,
-} from "@/app/pokemons";
+} from "@/pokemons";
 
 const getPokemons = async (
   limit = 20,
@@ -19,7 +19,7 @@ const getPokemons = async (
     };
   });
 
-  throw new Error("Esto es un error de prueba");
+  //throw new Error("Esto es un error de prueba");
 
   return pokemons;
 };
