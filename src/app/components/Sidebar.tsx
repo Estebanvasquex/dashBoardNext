@@ -24,6 +24,12 @@ const menuItems = [
     icon: <MdCatchingPokemon/>,
     title: "Pokemons",
     subTitle: "Lista de todos los pokemons estaticos",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <MdCatchingPokemon/>,
+    title: "Favoritos",
+    subTitle: "Lista de todos los pokémon favoritos",
   }
 ];
 

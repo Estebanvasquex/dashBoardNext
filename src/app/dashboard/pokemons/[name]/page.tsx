@@ -1,15 +1,36 @@
-import { Pokemon } from "@/pokemons";
+import { Pokemon, PokemonstResponseData, SimplePokemon } from "@/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: { id: string };
+  params: { name: string };
+}
+
+
+
+
+
+export async function generateStaticPaths() {
+
+  const data: PokemonstResponseData = await fetch(
+    `https://pokeapi.co/api/v2/pokemon?limit=151`
+  ).then((res) => res.json());
+  
+  
+  
+  const static151Pokemons = data.results.map((pokemon, index) => {
+    return {
+      name: pokemon.name,
+    };
+  });
+
+  return static151Pokemons.map((name) => ({name: name } ));
 }
 
 //Metadata dinamica
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id, name } = await getPokemon(params.id);
+  const { id, name } = await getPokemon(params.name);
 
   return {
     title: `Pokemon ${name}`,
@@ -17,9 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const getPokemon = async (id: string): Promise<Pokemon> => {
+const getPokemon = async (name: string): Promise<Pokemon> => {
   try {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {
       cache: "force-cache",
     }).then((res) => res.json());
     return pokemon;
@@ -29,14 +50,14 @@ const getPokemon = async (id: string): Promise<Pokemon> => {
 };
 
 export default async function PokemonPage({ params }: Props) {
-  const pokemon = await getPokemon(params.id);
+  const pokemon = await getPokemon(params.name);
 
   return (
     <div className="flex mt-5 flex-col items-center text-slate-800">
       <div className="relative flex flex-col items-center rounded-[20px] w-[700px] mx-auto bg-white bg-clip-border  shadow-lg  p-3">
         <div className="mt-2 mb-8 w-full">
           <h1 className="px-2 text-xl font-bold text-slate-700 capitalize">
-            #{pokemon.id} {pokemon.name}
+            #{pokemon.name} {pokemon.name}
           </h1>
           <div className="flex flex-col justify-center items-center">
             <Image
